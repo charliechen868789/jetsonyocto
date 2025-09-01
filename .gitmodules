@@ -1,0 +1,12 @@
+[submodule "poky"]
+	path = poky
+	url = git://git.yoctoproject.org/poky.git
+	branch = dunfell
+[submodule "meta-tegra"]
+	path = meta-tegra
+	url = https://github.com/OE4T/meta-tegra.git
+	branch = dunfell
+[submodule "meta-openembedded"]
+	path = meta-openembedded
+	url = https://git.openembedded.org/meta-openembedded
+	branch = dunfell

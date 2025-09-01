@@ -1,0 +1,5 @@
+build/tmp/
+build/sstate-cache/
+build/cache/
+*.log
+*.pyc
