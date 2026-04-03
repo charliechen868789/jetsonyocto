@@ -1,0 +1,11 @@
+[Unit]
+Description=Qt GUI App
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/gui-app
+Restart=always
+Environment=QT_QPA_PLATFORM=eglfs
+
+[Install]
+WantedBy=multi-user.target
