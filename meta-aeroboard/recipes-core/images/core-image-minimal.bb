@@ -16,6 +16,7 @@ IMAGE_INSTALL += " \
     qtgraphicaleffects \
     fontconfig \
     liberation-fonts \
+    ttf-dejavu-sans \
 "
 
 # OpenCV with DNN
@@ -62,3 +63,4 @@ IMAGE_INSTALL += " \
     htop \
 "
 IMAGE_INSTALL_remove = "opencv python3-opencv"
+IMAGE_INSTALL:append = " gui-app-init"
