@@ -63,4 +63,32 @@ IMAGE_INSTALL += " \
     htop \
 "
 IMAGE_INSTALL_remove = "opencv python3-opencv"
-IMAGE_INSTALL:append = " gui-app-init"
+
+TOOLCHAIN_HOST_TASK:append = " \
+    nativesdk-packagegroup-qt5-toolchain-host \
+    nativesdk-cmake \
+"
+
+TOOLCHAIN_TARGET_TASK:append = " \
+    packagegroup-qt5-toolchain-target \
+"
+# Enable Qt SDK support
+inherit populate_sdk_qt5
+
+# Qt5
+IMAGE_INSTALL += " \
+    qtbase \
+    qtbase-plugins \
+    qtbase-tools \
+    qtdeclarative \
+    qtdeclarative-qmlplugins \
+    qtmultimedia \
+    qtmultimedia-plugins \
+    qtquickcontrols2 \
+    qtgraphicaleffects \
+    fontconfig \
+    liberation-fonts \
+    ttf-dejavu-sans \
+"
+
+IMAGE_INSTALL_append = " rsync"

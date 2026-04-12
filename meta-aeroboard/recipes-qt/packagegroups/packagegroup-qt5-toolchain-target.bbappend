@@ -1,0 +1,1 @@
+RDEPENDS:remove = "qtwayland-mkspecs qtwayland-tools"
