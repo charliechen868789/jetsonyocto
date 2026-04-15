@@ -66,16 +66,20 @@ IMAGE_INSTALL_remove = "opencv python3-opencv"
 
 TOOLCHAIN_HOST_TASK:append = " \
     nativesdk-packagegroup-qt5-toolchain-host \
+    nativesdk-qttools-tools \
     nativesdk-cmake \
 "
 
 TOOLCHAIN_TARGET_TASK:append = " \
     packagegroup-qt5-toolchain-target \
+    qtbase-dev \
+    qtbase-mkspecs \
+    qtdeclarative-dev \
+    qtquickcontrols2-dev \
 "
-# Enable Qt SDK support
 inherit populate_sdk_qt5
+#inherit populate_sdk
 
-# Qt5
 IMAGE_INSTALL += " \
     qtbase \
     qtbase-plugins \
@@ -89,6 +93,40 @@ IMAGE_INSTALL += " \
     fontconfig \
     liberation-fonts \
     ttf-dejavu-sans \
+    opencv \
+    python3-opencv \
+    gstreamer1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-libav \
+    v4l-utils \
+    libv4l \
+    python3 \
+    python3-numpy \
+    python3-pip \
+    openssh \
+    net-tools \
+    iproute2 \
+    i2c-tools \
+    bash \
+    htop \
+    rsync \
 "
 
-IMAGE_INSTALL_append = " rsync"
+TOOLCHAIN_HOST_TASK:append = " \
+    nativesdk-packagegroup-qt5-toolchain-host \
+    nativesdk-qttools-tools \
+    nativesdk-cmake \
+"
+
+TOOLCHAIN_TARGET_TASK:append = " \
+    packagegroup-qt5-toolchain-target \
+    qtbase-dev \
+    qtbase-mkspecs \
+    qtdeclarative-dev \
+    qtquickcontrols2-dev \
+"
+
+TOOLCHAIN_HOST_TASK += " nativesdk-gcc nativesdk-g++ nativesdk-binutils"
+TOOLCHAIN_TARGET_TASK += " gcc g++ binutils"
