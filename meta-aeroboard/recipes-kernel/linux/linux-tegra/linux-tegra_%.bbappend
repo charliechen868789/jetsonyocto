@@ -1,6 +1,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}:"
 
-SRC_URI += "file://aeroboard-drm.cfg"
+SRC_URI += " \
+    file://aeroboard-drm.cfg \
+    file://bt.cfg \
+"
 
 KERNEL_CONFIG_FRAGMENTS += "aeroboard-drm.cfg"
 

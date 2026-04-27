@@ -130,3 +130,4 @@ TOOLCHAIN_TARGET_TASK:append = " \
 
 TOOLCHAIN_HOST_TASK += " nativesdk-gcc nativesdk-g++ nativesdk-binutils"
 TOOLCHAIN_TARGET_TASK += " gcc g++ binutils"
+IMAGE_INSTALL += "zeromq"
