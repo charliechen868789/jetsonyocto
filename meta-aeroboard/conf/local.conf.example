@@ -110,3 +110,26 @@ PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
 # -----------------------------
 PATCHRESOLVE = "noop"
 CONF_VERSION = "1"
+
+IMAGE_INSTALL:append = " zeromq "
+TOOLCHAIN_TARGET_TASK:append = " zeromq-dev cppzmq-dev"
+IMAGE_INSTALL:append = "i2c-tools"
+DISTRO_FEATURES:append = " bluetooth"
+IMAGE_INSTALL:append = " bluez5"
+IMAGE_INSTALL:append = " linux-firmware-iwlwifi linux-firmware"
+IMAGE_INSTALL:append = " \
+    linux-firmware \
+    wireless-regdb \
+    iw \
+    wpa-supplicant \
+"
+IMAGE_INSTALL:append += " rfkill"
+IMAGE_INSTALL:append = " kernel-modules"
+IMAGE_INSTALL:append = " usbutils pciutils"
+IMAGE_INSTALL:append = " opencv"
+TOOLCHAIN_TARGET_TASK:append = " opencv-dev"
+TOOLCHAIN_TARGET_TASK:append = " nlohmann-json-dev"
+#TUNE_FEATURES:append = " simd"
+#SELECTED_OPTIMIZATION = "-O2"
+#DEBUG_BUILD = "0"
+#DEBUG_FLAGS:pn-glibc = ""
