@@ -1,0 +1,38 @@
+From 0000000000000000000000000000000000000001 Mon Sep 17 00:00:00 2001
+From: Charlie <charlie@aeroboard>
+Date: Mon, 01 Jan 2024 00:00:00 +0000
+Subject: [PATCH] enable spidev on SPI0 for 40-pin header
+
+---
+ nvidia/platform/t210/batuu/kernel-dts/tegra210-p3448-0003-p3542-0000.dts | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/nvidia/platform/t210/batuu/kernel-dts/tegra210-p3448-0003-p3542-0000.dts b/nvidia/platform/t210/batuu/kernel-dts/tegra210-p3448-0003-p3542-0000.dts
+--- a/nvidia/platform/t210/batuu/kernel-dts/tegra210-p3448-0003-p3542-0000.dts
++++ b/nvidia/platform/t210/batuu/kernel-dts/tegra210-p3448-0003-p3542-0000.dts
+@@ -129,4 +129,23 @@
+ 			vin-supply = <&p3449_vdd_5v0_sys>;
+ 		};
+ 	};
++
++	/* SPI0 - 40-pin header: MOSI=pin19, MISO=pin21, SCK=pin23, CS0=pin24, CS1=pin26 */
++	spi@70004000 {
++		status = "okay";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		spidev@0 {
++			compatible = "rohm,dh2228fv";
++			reg = <0>;
++			spi-max-frequency = <50000000>;
++		};
++
++		spidev@1 {
++			compatible = "rohm,dh2228fv";
++			reg = <1>;
++			spi-max-frequency = <50000000>;
++		};
++	};
+ };
+-- 
+2.25.1

@@ -126,8 +126,15 @@ IMAGE_INSTALL:append = " \
 IMAGE_INSTALL:append += " rfkill"
 IMAGE_INSTALL:append = " kernel-modules"
 IMAGE_INSTALL:append = " usbutils pciutils"
-IMAGE_INSTALL:append = " opencv"
+IMAGE_INSTALL:append = " \
+    opencv \
+    protobuf \
+    libjpeg-turbo \
+    libpng \
+    zlib \
+"
 TOOLCHAIN_TARGET_TASK:append = " opencv-dev"
+IMAGE_INSTALL:append = " protobuf protobuf-compiler"
 TOOLCHAIN_TARGET_TASK:append = " nlohmann-json-dev"
 #TUNE_FEATURES:append = " simd"
 #SELECTED_OPTIMIZATION = "-O2"
